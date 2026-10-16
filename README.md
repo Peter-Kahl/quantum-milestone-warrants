@@ -1,4 +1,4 @@
-# What a Quantum Milestone Warrants
+# What a Quantum Milestone Warrants: Computational Supplement
 
 <p align="left">
   <img
