@@ -1,4 +1,11 @@
-# What a Quantum Milestone Warrants: Computational Supplement
+# What a Quantum Milestone Warrants
+
+<p align="left">
+  <img
+    src="assets/quantum-milestone-warrants.jpg"
+    alt="What a Quantum Milestone Warrants: a magnifying glass shows a clean falling error curve on small code grids, while a rare event strikes a grid outside its view; stepping stones towards a much larger grid stop short, and the large grid fades into mist."
+  >
+</p>
 
 Computational supplement to:
 
@@ -17,7 +24,7 @@ The paper asks what a quantum error-correction (QEC) milestone warrants. A compa
 | `robustness_checks.py` | §6.6 | Which parameter the decision hinges on; a possible change in scaling beyond the largest distance tested; misattribution of ordinary failures to events |
 | `make_figure_6_1.py` | Figure 6.1 | Draws the figure from the output of `decision_model.py` |
 
-Reference outputs are in `output/`. The superseded version 0.2.0 is kept in `archive/v0.2.0/` as a record (see the [changelog](CHANGELOG.md)).
+Reference outputs are in `output/`. The version history is in the [changelog](CHANGELOG.md).
 
 ## The scripts
 
