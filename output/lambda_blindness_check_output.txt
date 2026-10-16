@@ -1,0 +1,76 @@
+lambda_blindness_check.py v0.4.0  (What a Quantum Milestone Warrants, §6.3, §6.8)
+Toy model. NOT a model of Willow or of any real device. Every number below
+is a synthetic consequence of the stated assumptions.
+
+TABLE 1  Floor sweep (kappa = 0, mu = 0.3)
+  B7 floor  Lambda fit  shift/SE        O2 time      O3 time  ratio O2/O3
+     1e-11      2.1400     0.000 5,305,192.6 yr       16.1 h     2.88e+09
+     1e-10      2.1400     0.000    53,051.9 yr     44.0 min     6.34e+08
+     1e-09      2.1400     0.000       530.5 yr      2.7 min     1.02e+08
+     1e-08      2.1400     0.000         5.3 yr      0.2 min     1.40e+07
+     1e-07      2.1399     0.003        464.7 h      0.0 min     1.79e+06
+     1e-06      2.1394     0.029          4.6 h      0.0 min     2.18e+05
+     1e-05      2.1342     0.291        2.8 min      0.0 min     2.58e+04
+     3e-05      2.1227     0.863        0.3 min      0.0 min     9.25e+03
+     1e-04      2.0846     2.769        0.0 min      0.0 min     3.01e+03
+
+TABLE 2  Shape of the rare-event contribution (B7 = 1e-10, mu = 0.3)
+ kappa  Lambda fit  shift/SE        O2 time      O3 time
+    -2    2.140000 -7.07e-07     9,622.4 yr     44.0 min
+     0    2.140000  2.92e-06    53,051.9 yr     44.0 min
+     2    2.140000  3.59e-06    79,280.7 yr     44.0 min
+
+TABLE 3  Mapping parameter mu (B7 = 1e-10, kappa = 0): O3 time to decisive evidence
+        mu = probability that one detected rare event causes a d=7 logical failure (ASSUMED)
+  mu = 0.01   O3:    0.8 min   (rare-event rate r = 1.0e-08 per cycle)
+  mu = 0.03   O3:    2.7 min   (rare-event rate r = 3.3e-09 per cycle)
+  mu = 0.1    O3:   11.4 min   (rare-event rate r = 1.0e-09 per cycle)
+  mu = 0.3    O3:   44.0 min   (rare-event rate r = 3.3e-10 per cycle)
+  mu = 1.0    O3:      3.5 h   (rare-event rate r = 1.0e-10 per cycle)
+  Note: smaller mu means more events per unit floor, so O3 is FASTER; the risk lies
+  in mu itself being unknown, which O3 alone does not resolve (see README).
+
+TABLE 4  Does the floor change the scaling decision?
+  Target 1e-09 per cycle: M0 meets it at d* = 45 (p0 = 7.54e-10; 4049 physical qubits per logical qubit in a rotated surface code)
+    kappa=-2, B7=1e-11: M1 gives 7.54e-10 -> meets target
+    kappa=-2, B7=1e-10: M1 gives 7.57e-10 -> meets target
+    kappa=-2, B7=1e-09: M1 gives 7.78e-10 -> meets target
+    kappa= 0, B7=1e-11: M1 gives 7.64e-10 -> meets target
+    kappa= 0, B7=1e-10: M1 gives 8.54e-10 -> meets target
+    kappa= 0, B7=1e-09: M1 gives 1.75e-09 -> MISSES target
+    kappa= 2, B7=1e-11: M1 gives 1.17e-09 -> MISSES target
+    kappa= 2, B7=1e-10: M1 gives 4.89e-09 -> MISSES target
+    kappa= 2, B7=1e-09: M1 gives 4.21e-08 -> MISSES target
+  Target 1e-12 per cycle: M0 meets it at d* = 63 (p0 = 8.01e-13; 7937 physical qubits per logical qubit in a rotated surface code)
+    kappa=-2, B7=1e-11: M1 gives 9.25e-13 -> meets target
+    kappa=-2, B7=1e-10: M1 gives 2.04e-12 -> MISSES target
+    kappa=-2, B7=1e-09: M1 gives 1.31e-11 -> MISSES target
+    kappa= 0, B7=1e-11: M1 gives 1.08e-11 -> MISSES target
+    kappa= 0, B7=1e-10: M1 gives 1.01e-10 -> MISSES target
+    kappa= 0, B7=1e-09: M1 gives 1.00e-09 -> MISSES target
+    kappa= 2, B7=1e-11: M1 gives 8.11e-10 -> MISSES target
+    kappa= 2, B7=1e-10: M1 gives 8.10e-09 -> MISSES target
+    kappa= 2, B7=1e-09: M1 gives 8.10e-08 -> MISSES target
+
+TABLE 5  Invisibility window (kappa = 0): floors that change the decision
+         yet shift fitted Lambda by less than one reported SE
+  Target 1e-09: floors from 2e-10 to 3.5e-05 -> 5.2 decades invisible to Lambda but decision-changing
+  Target 1e-12: floors from 2e-13 to 3.5e-05 -> 8.2 decades invisible to Lambda but decision-changing
+
+TABLE 6  Demonstrability: zero-failure run needed at 95% confidence (independent cycles)
+  Target 1e-09: N = 3.00e+09 cycles = 54.9 min at 1.1 us/cycle
+    device at d* = 45 under M0 (p = 7.54e-10): P(run passes) = 0.104
+    same device under M1, floor 1e-11 (p = 7.64e-10): P(run passes) = 0.101
+    same device under M1, floor 1e-10 (p = 8.54e-10): P(run passes) = 0.077
+    same device under M1, floor 1e-09 (p = 1.75e-09): P(run passes) = 0.005
+    to pass with 90% probability a device needs p <= 3.5e-11 (28 times better than the target)
+  Target 1e-12: N = 3.00e+12 cycles = 915.4 h at 1.1 us/cycle
+    device at d* = 63 under M0 (p = 8.01e-13): P(run passes) = 0.091
+    same device under M1, floor 1e-11 (p = 1.08e-11): P(run passes) = 0.000
+    same device under M1, floor 1e-10 (p = 1.01e-10): P(run passes) = 0.000
+    same device under M1, floor 1e-09 (p = 1.00e-09): P(run passes) = 0.000
+    to pass with 90% probability a device needs p <= 3.5e-14 (28 times better than the target)
+
+SUMMARY CHECK (Lambda blind, events visible, window > 1 decade): PASS
+  At a Willow-like floor of 1e-10: Lambda shifts by 2.9e-06 SE;
+  O2 needs 6.3e+08 times longer than O3 to reach 20:1 odds.

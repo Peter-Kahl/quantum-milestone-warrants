@@ -1,0 +1,25 @@
+robustness_checks.py v0.4.0  (What a Quantum Milestone Warrants, §6.6)
+Toy model. NOT a model of Willow or of any real device.
+
+TABLE P  Partial value of perfect information, single power law (decision_model.py)
+  Reference: perfect 11.85; r alone 8.15; mu alone 0.74; kappa alone 4.44; r and mu 8.15
+  Far from boundary (C_mit = 85): perfect 8.15; r alone 0.00; mu alone 0.00; kappa alone 0.00; r and mu 2.41
+
+TABLE S  Scaling may change beyond distance 15 (81 hypotheses)
+  Reference: perfect 9.88; P(standard meets) 0.877; knowing everything a d<=15 experiment can see 7.90
+    O3 at 100 h:  5.68 ( 58%)
+    O4a at 100 h:  6.67 ( 68%)
+    O5 at 100 h:  7.88 ( 80%)
+    unreachable by any experiment at d <= 15:  1.98 ( 20%)
+  Far from boundary (C_mit = 85): perfect 6.79; P(standard meets) 0.877; knowing everything a d<=15 experiment can see 3.64
+    O3 at 100 h: -0.00 ( -0%)
+    O4a at 100 h:  2.41 ( 35%)
+    O5 at 100 h:  3.64 ( 54%)
+    unreachable by any experiment at d <= 15:  3.15 ( 46%)
+
+TABLE M  Misattribution of ordinary failures to events (reference case, 100 h)
+  No misattribution: O3 8.15, O4a 8.15, O5 11.81
+  window  10 cycles (f at d=7 0.014, d=15 0.0007); analyst models it: O4a 8.15, O5 11.80
+  window  10 cycles (f at d=7 0.014, d=15 0.0007); analyst ignores it: O4a 8.15, O5 11.75
+  window 100 cycles (f at d=7 0.133, d=15 0.0068); analyst models it: O4a 8.15, O5 11.68
+  window 100 cycles (f at d=7 0.133, d=15 0.0068); analyst ignores it: O4a 8.15, O5 8.89
