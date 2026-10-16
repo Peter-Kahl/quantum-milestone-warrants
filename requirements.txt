@@ -1,0 +1,11 @@
+# Runtime dependencies.
+# NumPy and SciPy: lambda_blindness_check.py (NumPy only), decision_model.py,
+# robustness_checks.py.
+numpy>=2.0
+scipy>=1.13
+# matplotlib: make_figure_6_1.py only.
+matplotlib>=3.8
+
+# Reference runs (output/) were produced with:
+#   Python 3.13.16, NumPy 2.5.3, SciPy 1.18.1, matplotlib 3.11.2
+# For exact textual reproduction, use those versions.
